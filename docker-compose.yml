@@ -1,0 +1,6 @@
+version: "3"
+services:
+  techlunsj-esbuild:
+    build: "."
+    ports:
+      - "5000:80"

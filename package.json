@@ -1,0 +1,29 @@
+{
+  "name": "techlunsj-esbuild",
+  "version": "1.0.0",
+  "browser": "public/js/index.js",
+  "author": "Erik Eiesland",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "@types/node": "^16.11.1",
+    "@types/react": "^17.0.30",
+    "@types/react-dom": "^17.0.9",
+    "@types/styled-components": "^5.1.15",
+    "esbuild": "^0.13.8",
+    "prettier": "^2.4.1",
+    "typescript": "^4.4.4"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "styled-components": "^5.3.3"
+  },
+  "scripts": {
+    "dev": "esbuild src/ts/index.tsx --bundle --sourcemap --target=chrome94 --define:process.env.NODE_ENV=\\\"development\\\" --servedir=public --outdir=public/js",
+    "prebuild": "tsc -p .",
+    "build": "esbuild src/ts/index.tsx --bundle --minify --target=chrome94 --define:process.env.NODE_ENV=\\\"production\\\" --outdir=public/js",
+    "prestart": "yarn build",
+    "start": "npx serve public"
+  }
+}
